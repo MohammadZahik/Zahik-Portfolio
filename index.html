@@ -810,77 +810,36 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		
 <!-- Contact Section Start -->
-<section id="contact" class="contact-area section-padding">
-    <div class="container">
-        <h2 class="section-title wow flipInX" data-wow-delay="0.4s">Contact <span>Me</span></h2>      
-        <div class="row contact-form-area">   												
-            <!-- Contact Form -->
-            <div class="col-md-6 col-lg-6 col-sm-12">
-                <div class="contact_form wow fadeInLeft">
-                    <form action="contact.php" method="post" id="contactForm">
-						<div class="contact_input_area">
-							<div id="success_fail_info"></div>
-							<div class="row">
-								<div class="col-12">
-									<div class="form-group">
-										<input type="text" name="name" class="form-control" placeholder="Name" required>
-									</div>
-								</div>
-								<div class="col-12 col-lg-6">
-									<div class="form-group">
-										<input type="email" name="email" class="form-control" placeholder="Email" required>
-									</div>
-								</div>
-								<div class="col-12 col-lg-6">
-									<div class="form-group">
-										<input type="text" name="subject" class="form-control" placeholder="Subject" required>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<textarea rows="6" name="message" class="form-control" placeholder="Your Message" required></textarea>
-									</div>
-								</div>
-								<div class="col-12 text-center">
-									<button type="submit" id="submitButton" class="btn btn-secondary ct_btn">Send Message</button>
-								</div>
-							</div>
-						</div>
-					</form>
-					
+<form action="https://formspree.io/f/your-form-id" method="POST" id="contactForm">
+    <div class="contact_input_area">
+        <div id="success_fail_info"></div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
                 </div>
             </div>
-
-            <!-- Contact Info -->
-            <div class="col-md-6 col-lg-6 col-sm-12">
-                <div class="footer-right-area wow fadeInRight">
-                    <h4>Contact Address</h4>
-                    <div class="footer-right-contact">
-                        <div class="single-contact">
-                            <div class="contact-icon">
-                              <i class="fa fa-map-marker"></i>
-                            </div>
-                            <p>Mangalore, Karnataka</p>
-                        </div>
-                        <div class="single-contact">
-                            <div class="contact-icon">
-                              <i class="fa fa-envelope"></i>
-                            </div>
-                            <p><a href="mailto:tmohammadzahik@gmail.com">tmohammadzahik@gmail.com</a></p>
-                        </div>
-                        <div class="single-contact">
-                            <div class="contact-icon">
-                              <i class="fa fa-phone"></i>
-                            </div>
-                            <p><a href="tel:+918310574328">+91 8310574328</a></p>
-                        </div>
-                    </div>								
-                </div>	
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <textarea rows="6" name="message" class="form-control" placeholder="Your Message" required></textarea>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" id="submitButton" class="btn btn-secondary ct_btn">Send Message</button>
             </div>
         </div>
     </div>
-</section>
-<!-- Contact Section End -->
+</form>
 
 <!-- Success Popup -->
 <div id="popup" class="popup">
@@ -890,6 +849,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <button onclick="closePopup()">Close</button>
     </div>
 </div>
+
+
+
 <style>/* Contact Section */
 	/* Contact Section */
 .contact-area {

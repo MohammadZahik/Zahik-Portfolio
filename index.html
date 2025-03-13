@@ -763,10 +763,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     items.forEach(item => observer.observe(item));
 });
- 
-
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const items = document.querySelectorAll(".single_blog");
@@ -780,14 +776,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     items.forEach(item => observer.observe(item));
 });
-
-
-
-
-
-
-    /* Scroll Animation Effect */
-    document.addEventListener("DOMContentLoaded", function() {
+/* Scroll Animation Effect */
+document.addEventListener("DOMContentLoaded", function() {
         const items = document.querySelectorAll(".timeline-item");
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -810,7 +800,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		
 <!-- Contact Section Start -->
-<form action="https://formspree.io/f/your-form-id" method="POST" id="contactForm">
+<form action="https://formspree.io/f/xaneykaq" method="POST" id="contactForm">
     <div class="contact_input_area">
         <div id="success_fail_info"></div>
         <div class="row">
@@ -949,31 +939,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	</style>
 
 
-	<script>
-		document.getElementById("contactForm").addEventListener("submit", function(event) {
-			event.preventDefault(); // Prevent form from reloading the page
-		
-			let formData = new FormData(this);
-		
-			fetch("contact.php", {
-				method: "POST",
-				body: formData
-			})
-			.then(response => response.text())
-			.then(data => {
-				let messageBox = document.getElementById("success_fail_info");
-				if (data.trim() === "success") {
-					messageBox.innerHTML = "<p style='color: green;'>Message sent successfully!</p>";
-					document.getElementById("contactForm").reset();
-				} else {
-					messageBox.innerHTML = "<p style='color: red;'>" + data + "</p>";
-				}
-			})
-			.catch(error => {
-				console.error("Error:", error);
-			});
-		});
-		</script>
+
 		
 		
 	

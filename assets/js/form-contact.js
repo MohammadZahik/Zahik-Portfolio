@@ -1,48 +1,32 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+    const popup = document.getElementById("popup");
 
-// JavaScript contact form Document
-$(document).ready(function() {
-	$('form#contact-form').submit(function() {
-	$('form#contact-form .error').remove();
-	var hasError = false;
-	$('.requiredField').each(function() {
-	if(jQuery.trim($(this).val()) == '') {
-    var labelText = $(this).prev('label').text();
-    $(this).parent().append('<span class="error">You forgot to enter your '+labelText+'</span>');
-    $(this).addClass('inputError');
-    hasError = true;
-    } else if($(this).hasClass('email')) {
-    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-    if(!emailReg.test(jQuery.trim($(this).val()))) {
-    var labelText = $(this).prev('label').text();
-    $(this).parent().append('<span class="error">You entered an invalid '+labelText+'</span>');
-    $(this).addClass('inputError');
-    hasError = true;
-    }
-    }
-    });
-    if(!hasError) {
-    $('form#contact-form input.submit').fadeOut('normal', function() {
-    $(this).parent().append('');
-    });
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent page reload
 
-     $("#loader").show();
-        $.ajax({
-            url: "contact.php",
-            type: "POST",
-            data:  new FormData(this),
-            contentType: false,
-            cache: false,
-            processData:false,
-            success: function(data){
-			  $('form#contact-form').slideUp("fast", function() {
-			  $(this).before('<div class="success">Thank you. Your Email was sent successfully.</div>');
-			  $("#loader").hide();
-			  })
-            }           
-       });
-	   
-	   return false;
-    }
- 
-   });
+        let formData = new FormData(form);
+
+        try {
+            let response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" },
+            });
+
+            if (response.ok) {
+                popup.style.display = "block"; // Show success popup
+                form.reset(); // Reset form fields
+            } else {
+                alert("Error sending message. Please try again.");
+            }
+        } catch (error) {
+            alert("Something went wrong. Please try again.");
+        }
+    });
 });
+
+// Close popup function
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}

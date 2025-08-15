@@ -702,12 +702,16 @@ practices, Git, and responsive design principles </li>
         }
 
         /* Certification Image */
+        /* Certification Image - Uniform Size */
         .blog-image img {
             border-radius: 10px;
             width: 100%;
-            height: auto;
+            height: 200px; /* set fixed height */
+            object-fit: cover; /* keeps proportions, crops if necessary */
             transition: transform 0.3s ease;
         }
+
+
         .blog-image:hover img {
             transform: scale(1.05);
         }
